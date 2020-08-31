@@ -12,22 +12,33 @@ import XCTest
 class UTMBeGoneTests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testURLsWithScheme() throws {
+        let values = ["https://www.gog.com/news/25th_anniversary_look_back_at_phantasmagoria?utm_medium=social&utm_source=twitter&utm_campaign=20200824_phantasmagoriaeditorial_entw&utm_term=EN" :"https://www.gog.com/news/25th_anniversary_look_back_at_phantasmagoria?",
+                      "https://casa.sapo.pt/detalhes.aspx?UID=9fa85847-82ee-4b0c-a830-44d0b391caf4&utm_medium=email&utm_campaign=alerts&utm_source=details" : "https://casa.sapo.pt/detalhes.aspx?UID=9fa85847-82ee-4b0c-a830-44d0b391caf4",
+                      "https://www.reddit.com/r/politics/comments/g6wrl2/trump_suggests_injecting_disinfectant_to_treat/?utm_medium=android_app&utm_source=share" : "https://www.reddit.com/r/politics/comments/g6wrl2/trump_suggests_injecting_disinfectant_to_treat/?"
+        ]
+        
+        for (badData, goodData) in values {
+            XCTAssertEqual(URLGarbageRemover.removeGarbage(badData), goodData)
+        }
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    /*
+     Every browser copies the scheme with the URL.
+     If the URL doesn't have scheme I'm assuming the user is copying it from another place and we should probably not change it
+     */
+    func testURLsWithoutScheme() throws {
+        let values = [
+                      "www.reddit.com/r/portugal/comments/esae9x/informação_útil_para_donos_de_nintendo_switch_e/?utm_medium=android_app&utm_source=share": "www.reddit.com/r/portugal/comments/esae9x/informação_útil_para_donos_de_nintendo_switch_e/?utm_medium=android_app&utm_source=share"
+        ]
+        
+        for (badData, goodData) in values {
+            XCTAssertEqual(URLGarbageRemover.removeGarbage(badData), goodData)
         }
     }
 

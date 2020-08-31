@@ -10,18 +10,16 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    @IBOutlet weak var window: NSWindow!
-
+    let pasteboardHandler = PasteboardHandler()
+    let menu = MenuManager()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        NSApplication.shared.setActivationPolicy(.accessory)
+        pasteboardHandler.startListening()
+        menu.setupMenu()
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        pasteboardHandler.stopListening()
     }
-
-
 }
-

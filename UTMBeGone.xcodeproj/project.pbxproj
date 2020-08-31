@@ -11,6 +11,10 @@
 		31A6634B24FDAB4400CDD04A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A6634A24FDAB4400CDD04A /* Assets.xcassets */; };
 		31A6634E24FDAB4400CDD04A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A6634C24FDAB4400CDD04A /* MainMenu.xib */; };
 		31A6635A24FDAB4500CDD04A /* UTMBeGoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6635924FDAB4500CDD04A /* UTMBeGoneTests.swift */; };
+		31A6636524FDAB5900CDD04A /* URLGarbageRemover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6636424FDAB5900CDD04A /* URLGarbageRemover.swift */; };
+		31A6636824FDAB5E00CDD04A /* PasteboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6636624FDAB5E00CDD04A /* PasteboardHandler.swift */; };
+		31A6636924FDAB5E00CDD04A /* PasteboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6636724FDAB5E00CDD04A /* PasteboardListener.swift */; };
+		31A6636B24FDAB9C00CDD04A /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6636A24FDAB9C00CDD04A /* MenuManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +37,10 @@
 		31A6635524FDAB4500CDD04A /* UTMBeGoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UTMBeGoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A6635924FDAB4500CDD04A /* UTMBeGoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTMBeGoneTests.swift; sourceTree = "<group>"; };
 		31A6635B24FDAB4500CDD04A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31A6636424FDAB5900CDD04A /* URLGarbageRemover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLGarbageRemover.swift; sourceTree = "<group>"; };
+		31A6636624FDAB5E00CDD04A /* PasteboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardHandler.swift; sourceTree = "<group>"; };
+		31A6636724FDAB5E00CDD04A /* PasteboardListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardListener.swift; sourceTree = "<group>"; };
+		31A6636A24FDAB9C00CDD04A /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,9 @@
 		31A6634724FDAB4400CDD04A /* UTMBeGone */ = {
 			isa = PBXGroup;
 			children = (
+				31A6636E24FDAC8100CDD04A /* Menu */,
+				31A6636D24FDAC7800CDD04A /* GarbageRemover */,
+				31A6636C24FDAC6E00CDD04A /* PasteboardCore */,
 				31A6634824FDAB4400CDD04A /* AppDelegate.swift */,
 				31A6634A24FDAB4400CDD04A /* Assets.xcassets */,
 				31A6634C24FDAB4400CDD04A /* MainMenu.xib */,
@@ -90,6 +101,31 @@
 				31A6635B24FDAB4500CDD04A /* Info.plist */,
 			);
 			path = UTMBeGoneTests;
+			sourceTree = "<group>";
+		};
+		31A6636C24FDAC6E00CDD04A /* PasteboardCore */ = {
+			isa = PBXGroup;
+			children = (
+				31A6636724FDAB5E00CDD04A /* PasteboardListener.swift */,
+				31A6636624FDAB5E00CDD04A /* PasteboardHandler.swift */,
+			);
+			path = PasteboardCore;
+			sourceTree = "<group>";
+		};
+		31A6636D24FDAC7800CDD04A /* GarbageRemover */ = {
+			isa = PBXGroup;
+			children = (
+				31A6636424FDAB5900CDD04A /* URLGarbageRemover.swift */,
+			);
+			path = GarbageRemover;
+			sourceTree = "<group>";
+		};
+		31A6636E24FDAC8100CDD04A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				31A6636A24FDAB9C00CDD04A /* MenuManager.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,7 +228,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A6636B24FDAB9C00CDD04A /* MenuManager.swift in Sources */,
+				31A6636524FDAB5900CDD04A /* URLGarbageRemover.swift in Sources */,
 				31A6634924FDAB4400CDD04A /* AppDelegate.swift in Sources */,
+				31A6636924FDAB5E00CDD04A /* PasteboardListener.swift in Sources */,
+				31A6636824FDAB5E00CDD04A /* PasteboardHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
