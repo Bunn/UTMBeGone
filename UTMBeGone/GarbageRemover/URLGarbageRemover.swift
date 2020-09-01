@@ -10,10 +10,7 @@ import Foundation
 
 struct URLGarbageRemover {
     static func removeGarbage(_ value: String) -> String {
-        if var componenets = URLComponents(string: value) {
-            componenets.query = nil
-        }
-        
+
         guard var componenets = URLComponents(string: value) else {
             return value
         }
@@ -27,3 +24,4 @@ struct URLGarbageRemover {
         return value
     }
 }
+
