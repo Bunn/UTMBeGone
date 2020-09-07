@@ -16,7 +16,7 @@ struct URLGarbageRemover {
         }
 
         componenets.queryItems = componenets.queryItems?.filter { queryItem in
-            itemsToRemove.map { queryItem.name.contains($0)}.allSatisfy { $0 == false }
+            itemsToRemove.map { queryItem.name == $0 }.allSatisfy { $0 == false }
         }
         
         if let newURL = componenets.string {
