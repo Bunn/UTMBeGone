@@ -51,7 +51,7 @@ class MenuManager: NSObject {
         launchAtLoginItem.state = launchAtLoginEnabled ? .on : .off
         menu.addItem(launchAtLoginItem)
         
-        let removeFromMenuItem = NSMenuItem(title: "Remove from Menu ", action: #selector(MenuManager.removeFromMenu), keyEquivalent: "")
+        let removeFromMenuItem = NSMenuItem(title: "Hide Icon ", action: #selector(MenuManager.removeFromMenu), keyEquivalent: "")
         removeFromMenuItem.target = self
         menu.addItem(removeFromMenuItem)
         
@@ -79,8 +79,8 @@ class MenuManager: NSObject {
     private func displayRemoveMenuItemAlertIfNecessary() {
         if UserDefaults.standard.bool(forKey: MenuManager.removeItemAlertKey) == false {
             let alert = NSAlert()
-            alert.messageText = "UTMBeGone"
-            alert.informativeText = "UTMBeGone will keep running in the background. If you want to see the menu icon again just double click on the application's icon in your application's folder."
+            alert.messageText = "UTMBeGone is not gone 😉"
+            alert.informativeText = "UTMBeGone will keep running in the background. If you wish to see the menu icon again, just double click on the application's icon in your application's folder."
             alert.alertStyle = .warning
             alert.addButton(withTitle: "Understood!")
             alert.runModal()
