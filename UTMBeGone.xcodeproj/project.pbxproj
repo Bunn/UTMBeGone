@@ -19,6 +19,7 @@
 		31D95686250663D100DCD1D1 /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D95684250663D100DCD1D1 /* PreferencesViewController.xib */; };
 		31D9568925066F2C00DCD1D1 /* QueryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D9568825066F2C00DCD1D1 /* QueryItem.swift */; };
 		31D9568B2506702F00DCD1D1 /* QueryItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D9568A2506702F00DCD1D1 /* QueryItemsManager.swift */; };
+		31D956902506818A00DCD1D1 /* SharedFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D9568E2506818A00DCD1D1 /* SharedFileList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,9 @@
 		31D95684250663D100DCD1D1 /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesViewController.xib; sourceTree = "<group>"; };
 		31D9568825066F2C00DCD1D1 /* QueryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryItem.swift; sourceTree = "<group>"; };
 		31D9568A2506702F00DCD1D1 /* QueryItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryItemsManager.swift; sourceTree = "<group>"; };
+		31D9568D2506818900DCD1D1 /* UTMBeGone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UTMBeGone-Bridging-Header.h"; sourceTree = "<group>"; };
+		31D9568E2506818A00DCD1D1 /* SharedFileList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedFileList.m; sourceTree = "<group>"; };
+		31D9568F2506818A00DCD1D1 /* SharedFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedFileList.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 				31A6636E24FDAC8100CDD04A /* Menu */,
 				31A6636D24FDAC7800CDD04A /* GarbageRemover */,
 				31A6636C24FDAC6E00CDD04A /* PasteboardCore */,
+				31D9568C2506817C00DCD1D1 /* Util */,
 				31A6634824FDAB4400CDD04A /* AppDelegate.swift */,
 				31A6634A24FDAB4400CDD04A /* Assets.xcassets */,
 				31A6634C24FDAB4400CDD04A /* MainMenu.xib */,
@@ -156,6 +161,16 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		31D9568C2506817C00DCD1D1 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				31D9568F2506818A00DCD1D1 /* SharedFileList.h */,
+				31D9568E2506818A00DCD1D1 /* SharedFileList.m */,
+				31D9568D2506818900DCD1D1 /* UTMBeGone-Bridging-Header.h */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,6 +221,7 @@
 				TargetAttributes = {
 					31A6634424FDAB4400CDD04A = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1170;
 					};
 					31A6635424FDAB4500CDD04A = {
 						CreatedOnToolsVersion = 11.6;
@@ -262,6 +278,7 @@
 				31A6634924FDAB4400CDD04A /* AppDelegate.swift in Sources */,
 				31A6636924FDAB5E00CDD04A /* PasteboardListener.swift in Sources */,
 				31A6636824FDAB5E00CDD04A /* PasteboardHandler.swift in Sources */,
+				31D956902506818A00DCD1D1 /* SharedFileList.m in Sources */,
 				31D9568B2506702F00DCD1D1 /* QueryItemsManager.swift in Sources */,
 				31D9568925066F2C00DCD1D1 /* QueryItem.swift in Sources */,
 				31D95685250663D100DCD1D1 /* PreferencesViewController.swift in Sources */,
@@ -415,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = UTMBeGone/UTMBeGone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -427,6 +445,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bunn.dev.UTMBeGone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UTMBeGone/Util/UTMBeGone-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -435,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = UTMBeGone/UTMBeGone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -447,6 +468,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bunn.dev.UTMBeGone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UTMBeGone/Util/UTMBeGone-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

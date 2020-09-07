@@ -11,6 +11,19 @@ import Cocoa
 class MenuManager: NSObject {
     private let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     private var windowController: NSWindowController?
+    private var appURL: URL { Bundle.main.bundleURL }
+    private var launchAtLoginEnabled: Bool {
+           get {
+                SharedFileList.sessionLoginItems().containsItem(appURL)
+           }
+           set {
+               if newValue {
+                   SharedFileList.sessionLoginItems().addItem(appURL)
+               } else {
+                   SharedFileList.sessionLoginItems().removeItem(appURL)
+               }
+           }
+       }
 
     public func setupMenu() {
         let menu = NSMenu()
@@ -19,6 +32,11 @@ class MenuManager: NSObject {
         preferencesItem.target = self
         menu.addItem(preferencesItem)
         
+        let launchAtLoginItem = NSMenuItem(title: "Launch at Login ", action: #selector(MenuManager.toggleLaunchAtLogin), keyEquivalent: "")
+        launchAtLoginItem.target = self
+        launchAtLoginItem.state = launchAtLoginEnabled ? .on : .off
+        menu.addItem(launchAtLoginItem)
+
         let quitMenuItem = NSMenuItem(title: "Quit", action: #selector(MenuManager.quit), keyEquivalent: "")
         quitMenuItem.target = self
         menu.addItem(quitMenuItem)
@@ -37,14 +55,19 @@ class MenuManager: NSObject {
     @objc private func openPreferences() {
         NSApp.activate(ignoringOtherApps: true)
         let preferences = PreferencesViewController()
-        //settings.delegate = self
         if windowController == nil {
             let window = NSWindow(contentViewController: preferences)
             window.delegate = self
             windowController = NSWindowController(window: window)
         }
         windowController?.showWindow(self)
-        windowController?.window?.makeKey()    }
+        windowController?.window?.makeKey()
+    }
+    
+    @objc private func toggleLaunchAtLogin() {
+        launchAtLoginEnabled.toggle()
+        setupMenu()
+    }
 }
 
 extension MenuManager: NSWindowDelegate {
