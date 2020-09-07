@@ -15,6 +15,8 @@
 		31A6636824FDAB5E00CDD04A /* PasteboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6636624FDAB5E00CDD04A /* PasteboardHandler.swift */; };
 		31A6636924FDAB5E00CDD04A /* PasteboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6636724FDAB5E00CDD04A /* PasteboardListener.swift */; };
 		31A6636B24FDAB9C00CDD04A /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6636A24FDAB9C00CDD04A /* MenuManager.swift */; };
+		31D95685250663D100DCD1D1 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D95683250663D100DCD1D1 /* PreferencesViewController.swift */; };
+		31D95686250663D100DCD1D1 /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D95684250663D100DCD1D1 /* PreferencesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		31A6636624FDAB5E00CDD04A /* PasteboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardHandler.swift; sourceTree = "<group>"; };
 		31A6636724FDAB5E00CDD04A /* PasteboardListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardListener.swift; sourceTree = "<group>"; };
 		31A6636A24FDAB9C00CDD04A /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
+		31D95683250663D100DCD1D1 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		31D95684250663D100DCD1D1 /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 		31A6634724FDAB4400CDD04A /* UTMBeGone */ = {
 			isa = PBXGroup;
 			children = (
+				31D95682250663B200DCD1D1 /* Preferences */,
 				31A6636E24FDAC8100CDD04A /* Menu */,
 				31A6636D24FDAC7800CDD04A /* GarbageRemover */,
 				31A6636C24FDAC6E00CDD04A /* PasteboardCore */,
@@ -126,6 +131,15 @@
 				31A6636A24FDAB9C00CDD04A /* MenuManager.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		31D95682250663B200DCD1D1 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				31D95683250663D100DCD1D1 /* PreferencesViewController.swift */,
+				31D95684250663D100DCD1D1 /* PreferencesViewController.xib */,
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +225,7 @@
 			files = (
 				31A6634B24FDAB4400CDD04A /* Assets.xcassets in Resources */,
 				31A6634E24FDAB4400CDD04A /* MainMenu.xib in Resources */,
+				31D95686250663D100DCD1D1 /* PreferencesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +248,7 @@
 				31A6634924FDAB4400CDD04A /* AppDelegate.swift in Sources */,
 				31A6636924FDAB5E00CDD04A /* PasteboardListener.swift in Sources */,
 				31A6636824FDAB5E00CDD04A /* PasteboardHandler.swift in Sources */,
+				31D95685250663D100DCD1D1 /* PreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
