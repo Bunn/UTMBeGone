@@ -43,7 +43,7 @@ class QueryItemsManager {
         }
         
         if queryList.count == 0 {
-            _ = createNewItem()
+            setupDefaultList()
             save()
         }
     }
@@ -62,5 +62,14 @@ class QueryItemsManager {
         } catch {
             print("Error encoding \(error)")
         }
+    }
+    
+    private func setupDefaultList() {
+        _ = createNewItem().value = "utm"
+        _ = createNewItem().value = "utm_source"
+        _ = createNewItem().value = "utm_media"
+        _ = createNewItem().value = "utm_campaign"
+        _ = createNewItem().value = "utm_medium"
+        _ = createNewItem().value = "utm_term"
     }
 }
