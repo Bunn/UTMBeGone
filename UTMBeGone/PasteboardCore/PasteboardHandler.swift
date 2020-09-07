@@ -27,7 +27,10 @@ class PasteboardHandler: NSObject {
         let items = pasteboard.pasteboardItems,
         let item = items.first?.string(forType: .string) else { return }
         
-        let newItem = URLGarbageRemover.removeGarbage(item)
+        let itemsToRemove = QueryItemsManager().queryList.map { $0.value }
+        print("Removing items \(itemsToRemove)")
+        let newItem = URLGarbageRemover.removeGarbage(item, itemsToRemove: itemsToRemove)
+        
         if newItem != item {
             listerner.stopListening()
             let pasteboard = NSPasteboard.general

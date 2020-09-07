@@ -24,7 +24,7 @@ class UTMBeGoneTests: XCTestCase {
         ]
         
         for (badData, goodData) in values {
-            XCTAssertEqual(URLGarbageRemover.removeGarbage(badData), goodData)
+            XCTAssertEqual(URLGarbageRemover.removeGarbage(badData, itemsToRemove: ["utm"]), goodData)
         }
     }
     
@@ -38,7 +38,7 @@ class UTMBeGoneTests: XCTestCase {
         ]
         
         for (badData, goodData) in values {
-            XCTAssertEqual(URLGarbageRemover.removeGarbage(badData), goodData)
+            XCTAssertEqual(URLGarbageRemover.removeGarbage(badData, itemsToRemove: ["utm"]), goodData)
         }
     }
 

@@ -17,6 +17,8 @@
 		31A6636B24FDAB9C00CDD04A /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6636A24FDAB9C00CDD04A /* MenuManager.swift */; };
 		31D95685250663D100DCD1D1 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D95683250663D100DCD1D1 /* PreferencesViewController.swift */; };
 		31D95686250663D100DCD1D1 /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D95684250663D100DCD1D1 /* PreferencesViewController.xib */; };
+		31D9568925066F2C00DCD1D1 /* QueryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D9568825066F2C00DCD1D1 /* QueryItem.swift */; };
+		31D9568B2506702F00DCD1D1 /* QueryItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D9568A2506702F00DCD1D1 /* QueryItemsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		31A6636A24FDAB9C00CDD04A /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		31D95683250663D100DCD1D1 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		31D95684250663D100DCD1D1 /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesViewController.xib; sourceTree = "<group>"; };
+		31D9568825066F2C00DCD1D1 /* QueryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryItem.swift; sourceTree = "<group>"; };
+		31D9568A2506702F00DCD1D1 /* QueryItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryItemsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 		31A6634724FDAB4400CDD04A /* UTMBeGone */ = {
 			isa = PBXGroup;
 			children = (
+				31D9568725066EFF00DCD1D1 /* Storage */,
 				31D95682250663B200DCD1D1 /* Preferences */,
 				31A6636E24FDAC8100CDD04A /* Menu */,
 				31A6636D24FDAC7800CDD04A /* GarbageRemover */,
@@ -140,6 +145,15 @@
 				31D95684250663D100DCD1D1 /* PreferencesViewController.xib */,
 			);
 			path = Preferences;
+			sourceTree = "<group>";
+		};
+		31D9568725066EFF00DCD1D1 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				31D9568825066F2C00DCD1D1 /* QueryItem.swift */,
+				31D9568A2506702F00DCD1D1 /* QueryItemsManager.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +262,8 @@
 				31A6634924FDAB4400CDD04A /* AppDelegate.swift in Sources */,
 				31A6636924FDAB5E00CDD04A /* PasteboardListener.swift in Sources */,
 				31A6636824FDAB5E00CDD04A /* PasteboardHandler.swift in Sources */,
+				31D9568B2506702F00DCD1D1 /* QueryItemsManager.swift in Sources */,
+				31D9568925066F2C00DCD1D1 /* QueryItem.swift in Sources */,
 				31D95685250663D100DCD1D1 /* PreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

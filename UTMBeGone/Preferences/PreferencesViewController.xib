@@ -85,6 +85,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="addItemButtonClicked:" target="-2" id="iw2-Di-F2N"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3C9-oi-H3Q">
                     <rect key="frame" x="61" y="13" width="47" height="32"/>
@@ -92,6 +95,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="removeItemButtonClicked:" target="-2" id="gsE-Mo-z4H"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
