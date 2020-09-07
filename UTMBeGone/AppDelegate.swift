@@ -12,7 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     let pasteboardHandler = PasteboardHandler()
     let menu = MenuManager()
-
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApplication.shared.setActivationPolicy(.accessory)
         pasteboardHandler.startListening()
