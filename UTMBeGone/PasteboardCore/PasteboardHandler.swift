@@ -34,7 +34,7 @@ class PasteboardHandler: NSObject {
             listerner.stopListening()
             let pasteboard = NSPasteboard.general
             pasteboard.clearContents()
-            pasteboard.writeObjects([newItem as NSPasteboardWriting])
+            pasteboard.setString(newItem, forType: .string)
             listerner.startListening()
         }
     }
