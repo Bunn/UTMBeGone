@@ -37,7 +37,7 @@ If you want to support its development you can buy it on the [App Store](https:/
 
 ## FAQ
 
-### I've removed the icon from the menu bar and not it's gone, how do I add it back?
+### I've removed the icon from the menu bar and now it's gone, how do I add it back?
 If you remove/hide the icon from the menu bar the app will keep running, if you want to see it back again just open your Application's folder and double click on the UTMBeGone icon to see it again.
 
 ### Will this app remove all "utm" tags from all texts I copy?
