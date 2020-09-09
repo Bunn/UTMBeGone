@@ -32,7 +32,7 @@ Protect the people you share links with from being tracked :)
 This project does not track anything you do ( it would be ironic right? 🙃), there are no analytics, no telemetry and it's a 100% offline app.
 
 ## Download
-UTMBeFone is a free and open source hobby project of mine. Feel free to download the proejct and run it anywhere you like!
+UTMBeGone is a free and open source hobby project of mine. Feel free to download the project and run it anywhere you like!
 If you want to support its development you can buy it on the [App Store](https://apps.apple.com/us/app/utmbegone/id1530867730?mt=12) for those nice automatic updates :)
 
 ## FAQ
