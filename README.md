@@ -14,7 +14,7 @@ With UTMBeGone you can prevent people from tracking you and the friends you shar
 # How it works?
 Every time you copy a valid URL to your pasteboard UTMBeGone will remove all queries that you configured on UTMBeGone. 
 
-For example, if you copy "http://fakestalkerwebsite.com?randomQuery=123&utm_content=we_are_stalking_you, you will actually paste http://fakestalkerwebsite.com?randomQuery=123 to your friends.
+For example, if you copy "http://fakestalkerwebsite.com?randomQuery=123&utm_source=we_are_stalking_you, you will actually paste http://fakestalkerwebsite.com?randomQuery=123 to your friends.
 
 UTMBeGone comes with a preset of query items to be removed, but you can add or remove anything you like.
 
