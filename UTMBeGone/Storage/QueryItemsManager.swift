@@ -71,5 +71,6 @@ class QueryItemsManager {
         _ = createNewItem().value = "utm_campaign"
         _ = createNewItem().value = "utm_medium"
         _ = createNewItem().value = "utm_term"
+        _ = createNewItem().value = "utm_content"
     }
 }
