@@ -11,21 +11,38 @@ import Cocoa
 class PasteboardHandler: NSObject {
     let listerner = PasteboardListener()
     
+    override init() {
+        super.init()
+        setupListeners()
+    }
+    
+    private func setupListeners() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pasteboardShouldStopListening), name: .PasteboardShouldStopListening, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pasteboardShouldStartListening), name: .PasteboardShouldStartListening, object: nil)
+    }
+    
     func startListening() {
-        NotificationCenter.default.addObserver(self, selector: #selector(onPasteboardChanged), name: .NSPasteboardDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onPasteboardChanged), name: .PasteboardDidChange, object: nil)
         listerner.startListening()
     }
     
     func stopListening() {
-        NotificationCenter.default.removeObserver(self, name: .NSPasteboardDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .PasteboardDidChange, object: nil)
         listerner.stopListening()
     }
     
-    @objc
-    func onPasteboardChanged(_ notification: Notification) {
+    @objc func pasteboardShouldStopListening(_ notification: Notification) {
+        stopListening()
+    }
+    
+    @objc func pasteboardShouldStartListening(_ notification: Notification) {
+        startListening()
+    }
+    
+    @objc func onPasteboardChanged(_ notification: Notification) {
         guard let pasteboard = notification.object as? NSPasteboard,
-        let items = pasteboard.pasteboardItems,
-        let item = items.first?.string(forType: .string) else { return }
+            let items = pasteboard.pasteboardItems,
+            let item = items.first?.string(forType: .string) else { return }
         
         let itemsToRemove = QueryItemsManager().queryList.map { $0.value }
         let newItem = URLGarbageRemover.removeGarbage(item, itemsToRemove: itemsToRemove)
