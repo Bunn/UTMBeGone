@@ -62,12 +62,7 @@ class MenuManager: NSObject {
         let preferencesItem = NSMenuItem(title: "Preferences", action: #selector(MenuManager.openPreferences), keyEquivalent: "")
         preferencesItem.target = self
         menu.addItem(preferencesItem)
-        
-        let launchAtLoginItem = NSMenuItem(title: "Launch at Login ", action: #selector(MenuManager.toggleLaunchAtLogin), keyEquivalent: "")
-        launchAtLoginItem.target = self
-        launchAtLoginItem.state = launchAtLoginEnabled ? .on : .off
-        menu.addItem(launchAtLoginItem)
-        
+                
         if stopped {
             let resumeMenuItem = NSMenuItem(title: "Resume ", action: #selector(MenuManager.resume), keyEquivalent: "")
             resumeMenuItem.target = self
@@ -78,9 +73,18 @@ class MenuManager: NSObject {
             menu.addItem(stopMenuItem)
         }
         
+        let launchAtLoginItem = NSMenuItem(title: "Launch at Login ", action: #selector(MenuManager.toggleLaunchAtLogin), keyEquivalent: "")
+        launchAtLoginItem.target = self
+        launchAtLoginItem.state = launchAtLoginEnabled ? .on : .off
+        menu.addItem(launchAtLoginItem)
+
         let removeFromMenuItem = NSMenuItem(title: "Hide Icon ", action: #selector(MenuManager.removeFromMenu), keyEquivalent: "")
         removeFromMenuItem.target = self
         menu.addItem(removeFromMenuItem)
+        
+        let websiteItem = NSMenuItem(title: "Project Website", action: #selector(MenuManager.openProjectWebsite), keyEquivalent: "")
+        websiteItem.target = self
+        menu.addItem(websiteItem)
         
         let quitMenuItem = NSMenuItem(title: "Quit", action: #selector(MenuManager.quit), keyEquivalent: "")
         quitMenuItem.target = self
@@ -127,6 +131,10 @@ extension MenuManager {
     @objc private func toggleLaunchAtLogin() {
         launchAtLoginEnabled.toggle()
         setupMenu()
+    }
+    
+    @objc private func openProjectWebsite() {
+        NSWorkspace.shared.open(URL(string: "https://github.com/Bunn/UTMBeGone")!)
     }
     
     @objc private func quit() {
