@@ -13,6 +13,8 @@ class MenuManager: NSObject {
     private var windowController: NSWindowController?
     private var appURL: URL { Bundle.main.bundleURL }
     private static let removeItemAlertKey = "UTMBeGone.RemoveItemAlertKey"
+    private static let stoppedKey = "UTMBeGone.Stopped"
+    
     //Hacky way to figure it out if the user is trying to open the app if it's already running
     private var activeCounter = 0
     
@@ -26,6 +28,21 @@ class MenuManager: NSObject {
             } else {
                 SharedFileList.sessionLoginItems().removeItem(appURL)
             }
+        }
+    }
+    
+    private var stopped: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: MenuManager.stoppedKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: MenuManager.stoppedKey)
+            if newValue {
+                NotificationCenter.default.post(name: .PasteboardShouldStopListening, object: nil)
+            } else {
+                NotificationCenter.default.post(name: .PasteboardShouldStartListening, object: nil)
+            }
+            setupMenu()
         }
     }
     
@@ -51,6 +68,16 @@ class MenuManager: NSObject {
         launchAtLoginItem.state = launchAtLoginEnabled ? .on : .off
         menu.addItem(launchAtLoginItem)
         
+        if stopped {
+            let resumeMenuItem = NSMenuItem(title: "Resume ", action: #selector(MenuManager.resume), keyEquivalent: "")
+            resumeMenuItem.target = self
+            menu.addItem(resumeMenuItem)
+        } else {
+            let stopMenuItem = NSMenuItem(title: "Stop ", action: #selector(MenuManager.stop), keyEquivalent: "")
+            stopMenuItem.target = self
+            menu.addItem(stopMenuItem)
+        }
+        
         let removeFromMenuItem = NSMenuItem(title: "Hide Icon ", action: #selector(MenuManager.removeFromMenu), keyEquivalent: "")
         removeFromMenuItem.target = self
         menu.addItem(removeFromMenuItem)
@@ -67,15 +94,6 @@ class MenuManager: NSObject {
         item.behavior = .removalAllowed
     }
     
-    @objc private func quit() {
-        NSApplication.shared.terminate(self)
-    }
-    
-    @objc private func removeFromMenu() {
-        displayRemoveMenuItemAlertIfNecessary()
-        item.isVisible = false
-    }
-    
     private func displayRemoveMenuItemAlertIfNecessary() {
         if UserDefaults.standard.bool(forKey: MenuManager.removeItemAlertKey) == false {
             let alert = NSAlert()
@@ -87,6 +105,12 @@ class MenuManager: NSObject {
             UserDefaults.standard.set(true, forKey: MenuManager.removeItemAlertKey)
         }
     }
+}
+
+
+//MARK: - Menu Actions
+
+extension MenuManager {
     
     @objc private func openPreferences() {
         NSApp.activate(ignoringOtherApps: true)
@@ -104,7 +128,27 @@ class MenuManager: NSObject {
         launchAtLoginEnabled.toggle()
         setupMenu()
     }
+    
+    @objc private func quit() {
+        NSApplication.shared.terminate(self)
+    }
+    
+    @objc private func removeFromMenu() {
+        displayRemoveMenuItemAlertIfNecessary()
+        item.isVisible = false
+    }
+    
+    @objc private func stop() {
+        stopped = true
+    }
+    
+    @objc private func resume() {
+        stopped = false
+    }
 }
+
+
+//MARK: - Window Delegate
 
 extension MenuManager: NSWindowDelegate {
     

@@ -18,7 +18,7 @@ class PasteboardListener: NSObject {
         timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
             if self.changeCount != pasteboard.changeCount {
                 self.changeCount = pasteboard.changeCount
-                NotificationCenter.default.post(name: .NSPasteboardDidChange, object: pasteboard)
+                NotificationCenter.default.post(name: .PasteboardDidChange, object: pasteboard)
             }
         }
     }
@@ -26,8 +26,4 @@ class PasteboardListener: NSObject {
     func stopListening() {
         timer.invalidate()
     }
-}
-
-extension NSNotification.Name {
-    public static let NSPasteboardDidChange: NSNotification.Name = .init(rawValue: "pasteboardDidChangeNotification")
 }

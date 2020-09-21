@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31629499250D180C0015E908 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31629498250D180C0015E908 /* NotificationNames.swift */; };
 		31A6634924FDAB4400CDD04A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6634824FDAB4400CDD04A /* AppDelegate.swift */; };
 		31A6634B24FDAB4400CDD04A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A6634A24FDAB4400CDD04A /* Assets.xcassets */; };
 		31A6634E24FDAB4400CDD04A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A6634C24FDAB4400CDD04A /* MainMenu.xib */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31629498250D180C0015E908 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		31A6634524FDAB4400CDD04A /* UTMBeGone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTMBeGone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A6634824FDAB4400CDD04A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31A6634A24FDAB4400CDD04A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				31D9568F2506818A00DCD1D1 /* SharedFileList.h */,
 				31D9568E2506818A00DCD1D1 /* SharedFileList.m */,
 				31D9568D2506818900DCD1D1 /* UTMBeGone-Bridging-Header.h */,
+				31629498250D180C0015E908 /* NotificationNames.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				31A6636824FDAB5E00CDD04A /* PasteboardHandler.swift in Sources */,
 				31D956902506818A00DCD1D1 /* SharedFileList.m in Sources */,
 				31D9568B2506702F00DCD1D1 /* QueryItemsManager.swift in Sources */,
+				31629499250D180C0015E908 /* NotificationNames.swift in Sources */,
 				31D9568925066F2C00DCD1D1 /* QueryItem.swift in Sources */,
 				31D95685250663D100DCD1D1 /* PreferencesViewController.swift in Sources */,
 			);
