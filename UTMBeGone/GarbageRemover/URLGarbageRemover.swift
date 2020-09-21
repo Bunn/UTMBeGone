@@ -12,7 +12,8 @@ struct URLGarbageRemover {
     static func removeGarbage(_ value: String, itemsToRemove: [String]) -> String {
 
         let sanitizedString = value.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard var componenets = URLComponents(string: sanitizedString) else {
+        guard var componenets = URLComponents(string: sanitizedString),
+              componenets.scheme != nil else {
             return value
         }
 
