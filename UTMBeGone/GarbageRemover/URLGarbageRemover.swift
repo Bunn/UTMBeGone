@@ -21,7 +21,10 @@ struct URLGarbageRemover {
             itemsToRemove.map { queryItem.name == $0 }.allSatisfy { $0 == false }
         }
         
-        if let newURL = componenets.string {
+        if var newURL = componenets.string {
+            if newURL.last == "?" {
+                newURL.removeLast()
+            }
             return newURL
         }
         return value
