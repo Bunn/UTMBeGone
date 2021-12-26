@@ -47,7 +47,7 @@ extension Bundle {
     private var derivedDataMainAppBundleURL: URL {
         let mainAppURL = Bundle.main.bundleURL
             .deletingLastPathComponent()
-            .appendingPathComponent("StatusBuddy.app")
+            .appendingPathComponent("UTMBeGone.app")
         
         guard FileManager.default.fileExists(atPath: mainAppURL.path) else {
             return bundledMainAppBundleURL
