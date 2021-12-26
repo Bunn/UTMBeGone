@@ -1,49 +1,38 @@
+//https://github.com/insidegui/StatusBuddy
 //
-//  AppDelegate.swift
-//  UTMBeGoneHelper
+//  HelperAppDelegate.swift
+//  StatusBuddyHelper
 //
-//  Created by Fernando Bunn on 26/12/2021.
-//  Copyright © 2021 Fernando Bunn. All rights reserved.
+//  Created by Guilherme Rambo on 21/12/21.
+//  Copyright © 2021 Guilherme Rambo. All rights reserved.
 //
+
 import Cocoa
+import os.log
 
-extension Notification.Name {
-    static let killLauncher = Notification.Name("killLauncher")
-}
-
-@NSApplicationMain
-class AppDelegate: NSObject {
-
-    @objc func terminate() {
-        NSApp.terminate(nil)
-    }
-}
-
-extension AppDelegate: NSApplicationDelegate {
+@main
+final class HelperAppDelegate: NSObject, NSApplicationDelegate {
+    
+    private let log = OSLog(subsystem: "deb.bunn.UTMBeGoneHelper", category: String(describing: HelperAppDelegate.self))
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-
-        let mainAppIdentifier = "bunn.dev.utmbegone"
-        let runningApps = NSWorkspace.shared.runningApplications
-        let isRunning = !runningApps.filter { $0.bundleIdentifier == mainAppIdentifier }.isEmpty
-
-        if !isRunning {
-            DistributedNotificationCenter.default().addObserver(self, selector: #selector(self.terminate), name: .killLauncher, object: mainAppIdentifier)
-
-            let path = Bundle.main.bundlePath as NSString
-            var components = path.pathComponents
-            components.removeLast()
-            components.removeLast()
-            components.removeLast()
-            components.append("MacOS")
-            components.append("UTMBeGone") //main app name
-
-            let newPath = NSString.path(withComponents: components)
-
-            NSWorkspace.shared.launchApplication(newPath)
-        }
-        else {
-            self.terminate()
-        }
+        let config = NSWorkspace.OpenConfiguration()
+        config.activates = false
+        config.addsToRecentItems = false
+        config.promptsUserIfNeeded = false
+        
+        NSWorkspace.shared.openApplication(
+            at: Bundle.main.mainAppBundleURL,
+            configuration: config) { _, error in
+                if let error = error {
+                    os_log("Failed to launch main app: %{public}@", log: self.log, type: .fault, String(describing: error))
+                } else {
+                    os_log("Main app launched successfully", log: self.log, type: .info)
+                }
+                
+                DispatchQueue.main.async { NSApp?.terminate(nil) }
+            }
     }
+
 }
+

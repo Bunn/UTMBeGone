@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		31629499250D180C0015E908 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31629498250D180C0015E908 /* NotificationNames.swift */; };
+		3192B4EF277919E400EFC6FB /* SharedConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192B4EE277919E400EFC6FB /* SharedConsts.swift */; };
+		3192B4F0277919E400EFC6FB /* SharedConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192B4EE277919E400EFC6FB /* SharedConsts.swift */; };
+		3192B4F227791B7400EFC6FB /* LaunchAtLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192B4F127791B7400EFC6FB /* LaunchAtLoginHelper.swift */; };
+		3192B4F427791EED00EFC6FB /* Bundle+MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192B4F327791EED00EFC6FB /* Bundle+MainApp.swift */; };
 		31A42F4A2779031E00A0B82D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A42F492779031E00A0B82D /* AppDelegate.swift */; };
-		31A42F4C2779031E00A0B82D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A42F4B2779031E00A0B82D /* ViewController.swift */; };
 		31A42F4E2779031E00A0B82D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A42F4D2779031E00A0B82D /* Assets.xcassets */; };
-		31A42F512779031E00A0B82D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31A42F4F2779031E00A0B82D /* Main.storyboard */; };
 		31A42F582779036600A0B82D /* UTMBeGoneHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31A42F472779031E00A0B82D /* UTMBeGoneHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		31A42F5B2779037200A0B82D /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A42F5A2779037200A0B82D /* ServiceManagement.framework */; platformFilter = maccatalyst; };
 		31A6634924FDAB4400CDD04A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6634824FDAB4400CDD04A /* AppDelegate.swift */; };
@@ -26,7 +28,6 @@
 		31D95686250663D100DCD1D1 /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D95684250663D100DCD1D1 /* PreferencesViewController.xib */; };
 		31D9568925066F2C00DCD1D1 /* QueryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D9568825066F2C00DCD1D1 /* QueryItem.swift */; };
 		31D9568B2506702F00DCD1D1 /* QueryItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D9568A2506702F00DCD1D1 /* QueryItemsManager.swift */; };
-		31D956902506818A00DCD1D1 /* SharedFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D9568E2506818A00DCD1D1 /* SharedFileList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +55,12 @@
 
 /* Begin PBXFileReference section */
 		31629498250D180C0015E908 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
+		3192B4EE277919E400EFC6FB /* SharedConsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConsts.swift; sourceTree = "<group>"; };
+		3192B4F127791B7400EFC6FB /* LaunchAtLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginHelper.swift; sourceTree = "<group>"; };
+		3192B4F327791EED00EFC6FB /* Bundle+MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+MainApp.swift"; sourceTree = "<group>"; };
 		31A42F472779031E00A0B82D /* UTMBeGoneHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTMBeGoneHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A42F492779031E00A0B82D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		31A42F4B2779031E00A0B82D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		31A42F4D2779031E00A0B82D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		31A42F502779031E00A0B82D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31A42F522779031E00A0B82D /* UTMBeGoneHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UTMBeGoneHelper.entitlements; sourceTree = "<group>"; };
 		31A42F562779033700A0B82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		31A42F5A2779037200A0B82D /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
@@ -80,8 +82,6 @@
 		31D9568825066F2C00DCD1D1 /* QueryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryItem.swift; sourceTree = "<group>"; };
 		31D9568A2506702F00DCD1D1 /* QueryItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryItemsManager.swift; sourceTree = "<group>"; };
 		31D9568D2506818900DCD1D1 /* UTMBeGone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UTMBeGone-Bridging-Header.h"; sourceTree = "<group>"; };
-		31D9568E2506818A00DCD1D1 /* SharedFileList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedFileList.m; sourceTree = "<group>"; };
-		31D9568F2506818A00DCD1D1 /* SharedFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedFileList.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,15 +110,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3192B4ED277919AB00EFC6FB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3192B4EE277919E400EFC6FB /* SharedConsts.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		31A42F482779031E00A0B82D /* UTMBeGoneHelper */ = {
 			isa = PBXGroup;
 			children = (
 				31A42F562779033700A0B82D /* Info.plist */,
 				31A42F492779031E00A0B82D /* AppDelegate.swift */,
-				31A42F4B2779031E00A0B82D /* ViewController.swift */,
 				31A42F4D2779031E00A0B82D /* Assets.xcassets */,
-				31A42F4F2779031E00A0B82D /* Main.storyboard */,
 				31A42F522779031E00A0B82D /* UTMBeGoneHelper.entitlements */,
+				3192B4F327791EED00EFC6FB /* Bundle+MainApp.swift */,
 			);
 			path = UTMBeGoneHelper;
 			sourceTree = "<group>";
@@ -155,6 +162,7 @@
 		31A6634724FDAB4400CDD04A /* UTMBeGone */ = {
 			isa = PBXGroup;
 			children = (
+				3192B4ED277919AB00EFC6FB /* Shared */,
 				31D9568725066EFF00DCD1D1 /* Storage */,
 				31D95682250663B200DCD1D1 /* Preferences */,
 				31A6636E24FDAC8100CDD04A /* Menu */,
@@ -225,10 +233,9 @@
 		31D9568C2506817C00DCD1D1 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				31D9568F2506818A00DCD1D1 /* SharedFileList.h */,
-				31D9568E2506818A00DCD1D1 /* SharedFileList.m */,
 				31D9568D2506818900DCD1D1 /* UTMBeGone-Bridging-Header.h */,
 				31629498250D180C0015E908 /* NotificationNames.swift */,
+				3192B4F127791B7400EFC6FB /* LaunchAtLoginHelper.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -338,7 +345,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				31A42F4E2779031E00A0B82D /* Assets.xcassets in Resources */,
-				31A42F512779031E00A0B82D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +372,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31A42F4C2779031E00A0B82D /* ViewController.swift in Sources */,
+				3192B4F0277919E400EFC6FB /* SharedConsts.swift in Sources */,
+				3192B4F427791EED00EFC6FB /* Bundle+MainApp.swift in Sources */,
 				31A42F4A2779031E00A0B82D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,9 +387,10 @@
 				31A6634924FDAB4400CDD04A /* AppDelegate.swift in Sources */,
 				31A6636924FDAB5E00CDD04A /* PasteboardListener.swift in Sources */,
 				31A6636824FDAB5E00CDD04A /* PasteboardHandler.swift in Sources */,
-				31D956902506818A00DCD1D1 /* SharedFileList.m in Sources */,
+				3192B4F227791B7400EFC6FB /* LaunchAtLoginHelper.swift in Sources */,
 				31D9568B2506702F00DCD1D1 /* QueryItemsManager.swift in Sources */,
 				31629499250D180C0015E908 /* NotificationNames.swift in Sources */,
+				3192B4EF277919E400EFC6FB /* SharedConsts.swift in Sources */,
 				31D9568925066F2C00DCD1D1 /* QueryItem.swift in Sources */,
 				31D95685250663D100DCD1D1 /* PreferencesViewController.swift in Sources */,
 			);
@@ -407,14 +415,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		31A42F4F2779031E00A0B82D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				31A42F502779031E00A0B82D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		31A6634C24FDAB4400CDD04A /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -441,7 +441,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTMBeGoneHelper/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fernando Bunn. All rights reserved.";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,7 +470,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTMBeGoneHelper/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fernando Bunn. All rights reserved.";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

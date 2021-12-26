@@ -20,14 +20,10 @@ class MenuManager: NSObject {
     
     private var launchAtLoginEnabled: Bool {
         get {
-            SharedFileList.sessionLoginItems().containsItem(appURL)
+            LaunchAtLoginHelper().checkEnabled()
         }
         set {
-            if newValue {
-                SharedFileList.sessionLoginItems().addItem(appURL)
-            } else {
-                SharedFileList.sessionLoginItems().removeItem(appURL)
-            }
+            LaunchAtLoginHelper().setEnabled(newValue)
         }
     }
     
