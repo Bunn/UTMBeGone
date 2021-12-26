@@ -3,11 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		31629499250D180C0015E908 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31629498250D180C0015E908 /* NotificationNames.swift */; };
+		31A42F4A2779031E00A0B82D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A42F492779031E00A0B82D /* AppDelegate.swift */; };
+		31A42F4C2779031E00A0B82D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A42F4B2779031E00A0B82D /* ViewController.swift */; };
+		31A42F4E2779031E00A0B82D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A42F4D2779031E00A0B82D /* Assets.xcassets */; };
+		31A42F512779031E00A0B82D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31A42F4F2779031E00A0B82D /* Main.storyboard */; };
+		31A42F582779036600A0B82D /* UTMBeGoneHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31A42F472779031E00A0B82D /* UTMBeGoneHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		31A42F5B2779037200A0B82D /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A42F5A2779037200A0B82D /* ServiceManagement.framework */; platformFilter = maccatalyst; };
 		31A6634924FDAB4400CDD04A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6634824FDAB4400CDD04A /* AppDelegate.swift */; };
 		31A6634B24FDAB4400CDD04A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A6634A24FDAB4400CDD04A /* Assets.xcassets */; };
 		31A6634E24FDAB4400CDD04A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A6634C24FDAB4400CDD04A /* MainMenu.xib */; };
@@ -33,8 +39,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		31A42F572779035200A0B82D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				31A42F582779036600A0B82D /* UTMBeGoneHelper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		31629498250D180C0015E908 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
+		31A42F472779031E00A0B82D /* UTMBeGoneHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTMBeGoneHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31A42F492779031E00A0B82D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		31A42F4B2779031E00A0B82D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		31A42F4D2779031E00A0B82D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		31A42F502779031E00A0B82D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		31A42F522779031E00A0B82D /* UTMBeGoneHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UTMBeGoneHelper.entitlements; sourceTree = "<group>"; };
+		31A42F562779033700A0B82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		31A42F5A2779037200A0B82D /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		31A6634524FDAB4400CDD04A /* UTMBeGone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTMBeGone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A6634824FDAB4400CDD04A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31A6634A24FDAB4400CDD04A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,10 +85,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		31A42F442779031E00A0B82D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31A6634224FDAB4400CDD04A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A42F5B2779037200A0B82D /* ServiceManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,12 +110,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31A42F482779031E00A0B82D /* UTMBeGoneHelper */ = {
+			isa = PBXGroup;
+			children = (
+				31A42F562779033700A0B82D /* Info.plist */,
+				31A42F492779031E00A0B82D /* AppDelegate.swift */,
+				31A42F4B2779031E00A0B82D /* ViewController.swift */,
+				31A42F4D2779031E00A0B82D /* Assets.xcassets */,
+				31A42F4F2779031E00A0B82D /* Main.storyboard */,
+				31A42F522779031E00A0B82D /* UTMBeGoneHelper.entitlements */,
+			);
+			path = UTMBeGoneHelper;
+			sourceTree = "<group>";
+		};
+		31A42F592779037200A0B82D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31A42F5A2779037200A0B82D /* ServiceManagement.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		31A6633C24FDAB4400CDD04A = {
 			isa = PBXGroup;
 			children = (
 				31A6634724FDAB4400CDD04A /* UTMBeGone */,
 				31A6635824FDAB4500CDD04A /* UTMBeGoneTests */,
+				31A42F482779031E00A0B82D /* UTMBeGoneHelper */,
 				31A6634624FDAB4400CDD04A /* Products */,
+				31A42F592779037200A0B82D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +147,7 @@
 			children = (
 				31A6634524FDAB4400CDD04A /* UTMBeGone.app */,
 				31A6635524FDAB4500CDD04A /* UTMBeGoneTests.xctest */,
+				31A42F472779031E00A0B82D /* UTMBeGoneHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +236,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		31A42F462779031E00A0B82D /* UTMBeGoneHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31A42F552779031E00A0B82D /* Build configuration list for PBXNativeTarget "UTMBeGoneHelper" */;
+			buildPhases = (
+				31A42F432779031E00A0B82D /* Sources */,
+				31A42F442779031E00A0B82D /* Frameworks */,
+				31A42F452779031E00A0B82D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UTMBeGoneHelper;
+			productName = UTMBeGoneHelper;
+			productReference = 31A42F472779031E00A0B82D /* UTMBeGoneHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
 		31A6634424FDAB4400CDD04A /* UTMBeGone */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31A6635E24FDAB4500CDD04A /* Build configuration list for PBXNativeTarget "UTMBeGone" */;
@@ -184,6 +260,7 @@
 				31A6634124FDAB4400CDD04A /* Sources */,
 				31A6634224FDAB4400CDD04A /* Frameworks */,
 				31A6634324FDAB4400CDD04A /* Resources */,
+				31A42F572779035200A0B82D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -218,10 +295,13 @@
 		31A6633D24FDAB4400CDD04A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Fernando Bunn";
 				TargetAttributes = {
+					31A42F462779031E00A0B82D = {
+						CreatedOnToolsVersion = 13.2;
+					};
 					31A6634424FDAB4400CDD04A = {
 						CreatedOnToolsVersion = 11.6;
 						LastSwiftMigration = 1170;
@@ -247,11 +327,21 @@
 			targets = (
 				31A6634424FDAB4400CDD04A /* UTMBeGone */,
 				31A6635424FDAB4500CDD04A /* UTMBeGoneTests */,
+				31A42F462779031E00A0B82D /* UTMBeGoneHelper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		31A42F452779031E00A0B82D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31A42F4E2779031E00A0B82D /* Assets.xcassets in Resources */,
+				31A42F512779031E00A0B82D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31A6634324FDAB4400CDD04A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,6 +362,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		31A42F432779031E00A0B82D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31A42F4C2779031E00A0B82D /* ViewController.swift in Sources */,
+				31A42F4A2779031E00A0B82D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31A6634124FDAB4400CDD04A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -308,6 +407,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		31A42F4F2779031E00A0B82D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31A42F502779031E00A0B82D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		31A6634C24FDAB4400CDD04A /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -319,6 +426,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		31A42F532779031E00A0B82D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = UTMBeGoneHelper/UTMBeGoneHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B2RUA6XMHC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UTMBeGoneHelper/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fernando Bunn. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bunn.dev.UTMBeGoneHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		31A42F542779031E00A0B82D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = UTMBeGoneHelper/UTMBeGoneHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B2RUA6XMHC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UTMBeGoneHelper/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fernando Bunn. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bunn.dev.UTMBeGoneHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		31A6635C24FDAB4500CDD04A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -532,6 +699,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		31A42F552779031E00A0B82D /* Build configuration list for PBXNativeTarget "UTMBeGoneHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31A42F532779031E00A0B82D /* Debug */,
+				31A42F542779031E00A0B82D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		31A6634024FDAB4400CDD04A /* Build configuration list for PBXProject "UTMBeGone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
