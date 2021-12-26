@@ -16,9 +16,7 @@ struct LaunchAtLoginHelper {
     func killHelperIfNecessary() {
         let runningApps = NSWorkspace.shared.runningApplications
         let isRunning = !runningApps.filter { $0.bundleIdentifier == SharedConsts.launcherAppID }.isEmpty
-
-        SMLoginItemSetEnabled(SharedConsts.launcherAppID as CFString, true)
-
+        
         if isRunning {
             DistributedNotificationCenter.default().post(name: .killLauncher, object: Bundle.main.bundleIdentifier!)
         }

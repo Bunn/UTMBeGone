@@ -35,7 +35,7 @@ extension Bundle {
     
     private var bundledMainAppBundleURL: URL {
         return bundleURL
-            .deletingLastPathComponent() // StatusBuddyHelper.app
+            .deletingLastPathComponent() // UTMBeGone.app
             .deletingLastPathComponent() // LoginItems
             .deletingLastPathComponent() // Library
             .deletingLastPathComponent() // Contents

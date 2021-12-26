@@ -13,7 +13,7 @@ import os.log
 @main
 final class HelperAppDelegate: NSObject, NSApplicationDelegate {
     
-    private let log = OSLog(subsystem: "deb.bunn.UTMBeGoneHelper", category: String(describing: HelperAppDelegate.self))
+    private let log = OSLog(subsystem: "bunn.dev.UTMBeGoneHelper", category: String(describing: HelperAppDelegate.self))
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let config = NSWorkspace.OpenConfiguration()
