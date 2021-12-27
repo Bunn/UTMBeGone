@@ -1,19 +1,18 @@
-//https://github.com/insidegui/StatusBuddy
 //
-//  HelperAppDelegate.swift
-//  StatusBuddyHelper
+//  AppDelegate.swift
+//  UTMBeGoneHelper
 //
-//  Created by Guilherme Rambo on 21/12/21.
-//  Copyright © 2021 Guilherme Rambo. All rights reserved.
+//  Created by Fernando Bunn on 27/12/2021.
+//  Copyright © 2021 Fernando Bunn. All rights reserved.
 //
 
 import Cocoa
 import os.log
 
-@main
-final class HelperAppDelegate: NSObject, NSApplicationDelegate {
+@NSApplicationMain
+class AppDelegate: NSObject, NSApplicationDelegate {
     
-    private let log = OSLog(subsystem: "bunn.dev.UTMBeGoneHelper", category: String(describing: HelperAppDelegate.self))
+    private let log = OSLog(subsystem: "bunn.dev.UTMBeGoneHelper", category: String(describing: AppDelegate.self))
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let config = NSWorkspace.OpenConfiguration()

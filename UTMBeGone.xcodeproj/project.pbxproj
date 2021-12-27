@@ -3,19 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		314FD7D7277A3D0900D16AED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FD7D6277A3D0900D16AED /* AppDelegate.swift */; };
+		314FD7DB277A3D0900D16AED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 314FD7DA277A3D0900D16AED /* Assets.xcassets */; };
+		314FD7DE277A3D0900D16AED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314FD7DC277A3D0900D16AED /* Main.storyboard */; };
+		314FD7E4277A3D3B00D16AED /* Bundle+MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FD7E3277A3D3B00D16AED /* Bundle+MainApp.swift */; };
+		314FD7E5277A3D6B00D16AED /* UTMBeGoneHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 314FD7D4277A3D0800D16AED /* UTMBeGoneHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		31629499250D180C0015E908 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31629498250D180C0015E908 /* NotificationNames.swift */; };
 		3192B4EF277919E400EFC6FB /* SharedConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192B4EE277919E400EFC6FB /* SharedConsts.swift */; };
-		3192B4F0277919E400EFC6FB /* SharedConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192B4EE277919E400EFC6FB /* SharedConsts.swift */; };
 		3192B4F227791B7400EFC6FB /* LaunchAtLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192B4F127791B7400EFC6FB /* LaunchAtLoginHelper.swift */; };
-		3192B4F427791EED00EFC6FB /* Bundle+MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192B4F327791EED00EFC6FB /* Bundle+MainApp.swift */; };
-		31A42F4A2779031E00A0B82D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A42F492779031E00A0B82D /* AppDelegate.swift */; };
-		31A42F4E2779031E00A0B82D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A42F4D2779031E00A0B82D /* Assets.xcassets */; };
-		31A42F582779036600A0B82D /* UTMBeGoneHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31A42F472779031E00A0B82D /* UTMBeGoneHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		31A42F5B2779037200A0B82D /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A42F5A2779037200A0B82D /* ServiceManagement.framework */; platformFilter = maccatalyst; };
 		31A6634924FDAB4400CDD04A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6634824FDAB4400CDD04A /* AppDelegate.swift */; };
 		31A6634B24FDAB4400CDD04A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A6634A24FDAB4400CDD04A /* Assets.xcassets */; };
 		31A6634E24FDAB4400CDD04A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A6634C24FDAB4400CDD04A /* MainMenu.xib */; };
@@ -47,22 +46,23 @@
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
-				31A42F582779036600A0B82D /* UTMBeGoneHelper.app in CopyFiles */,
+				314FD7E5277A3D6B00D16AED /* UTMBeGoneHelper.app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		314FD7D4277A3D0800D16AED /* UTMBeGoneHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTMBeGoneHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		314FD7D6277A3D0900D16AED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		314FD7DA277A3D0900D16AED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		314FD7DD277A3D0900D16AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		314FD7DF277A3D0900D16AED /* UTMBeGoneHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UTMBeGoneHelper.entitlements; sourceTree = "<group>"; };
+		314FD7E3277A3D3B00D16AED /* Bundle+MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+MainApp.swift"; sourceTree = "<group>"; };
+		314FD7E6277A3DAA00D16AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		31629498250D180C0015E908 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		3192B4EE277919E400EFC6FB /* SharedConsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConsts.swift; sourceTree = "<group>"; };
 		3192B4F127791B7400EFC6FB /* LaunchAtLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginHelper.swift; sourceTree = "<group>"; };
-		3192B4F327791EED00EFC6FB /* Bundle+MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+MainApp.swift"; sourceTree = "<group>"; };
-		31A42F472779031E00A0B82D /* UTMBeGoneHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTMBeGoneHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		31A42F492779031E00A0B82D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		31A42F4D2779031E00A0B82D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		31A42F522779031E00A0B82D /* UTMBeGoneHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UTMBeGoneHelper.entitlements; sourceTree = "<group>"; };
-		31A42F562779033700A0B82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		31A42F5A2779037200A0B82D /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		31A6634524FDAB4400CDD04A /* UTMBeGone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTMBeGone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A6634824FDAB4400CDD04A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		31A42F442779031E00A0B82D /* Frameworks */ = {
+		314FD7D1277A3D0800D16AED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -96,7 +96,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31A42F5B2779037200A0B82D /* ServiceManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,24 +109,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		314FD7D5277A3D0800D16AED /* UTMBeGoneHelper */ = {
+			isa = PBXGroup;
+			children = (
+				314FD7E6277A3DAA00D16AED /* Info.plist */,
+				314FD7D6277A3D0900D16AED /* AppDelegate.swift */,
+				314FD7DA277A3D0900D16AED /* Assets.xcassets */,
+				314FD7DC277A3D0900D16AED /* Main.storyboard */,
+				314FD7DF277A3D0900D16AED /* UTMBeGoneHelper.entitlements */,
+				314FD7E3277A3D3B00D16AED /* Bundle+MainApp.swift */,
+			);
+			path = UTMBeGoneHelper;
+			sourceTree = "<group>";
+		};
 		3192B4ED277919AB00EFC6FB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				3192B4EE277919E400EFC6FB /* SharedConsts.swift */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		31A42F482779031E00A0B82D /* UTMBeGoneHelper */ = {
-			isa = PBXGroup;
-			children = (
-				31A42F562779033700A0B82D /* Info.plist */,
-				31A42F492779031E00A0B82D /* AppDelegate.swift */,
-				31A42F4D2779031E00A0B82D /* Assets.xcassets */,
-				31A42F522779031E00A0B82D /* UTMBeGoneHelper.entitlements */,
-				3192B4F327791EED00EFC6FB /* Bundle+MainApp.swift */,
-			);
-			path = UTMBeGoneHelper;
 			sourceTree = "<group>";
 		};
 		31A42F592779037200A0B82D /* Frameworks */ = {
@@ -143,7 +143,7 @@
 			children = (
 				31A6634724FDAB4400CDD04A /* UTMBeGone */,
 				31A6635824FDAB4500CDD04A /* UTMBeGoneTests */,
-				31A42F482779031E00A0B82D /* UTMBeGoneHelper */,
+				314FD7D5277A3D0800D16AED /* UTMBeGoneHelper */,
 				31A6634624FDAB4400CDD04A /* Products */,
 				31A42F592779037200A0B82D /* Frameworks */,
 			);
@@ -154,7 +154,7 @@
 			children = (
 				31A6634524FDAB4400CDD04A /* UTMBeGone.app */,
 				31A6635524FDAB4500CDD04A /* UTMBeGoneTests.xctest */,
-				31A42F472779031E00A0B82D /* UTMBeGoneHelper.app */,
+				314FD7D4277A3D0800D16AED /* UTMBeGoneHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -243,13 +243,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		31A42F462779031E00A0B82D /* UTMBeGoneHelper */ = {
+		314FD7D3277A3D0800D16AED /* UTMBeGoneHelper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 31A42F552779031E00A0B82D /* Build configuration list for PBXNativeTarget "UTMBeGoneHelper" */;
+			buildConfigurationList = 314FD7E0277A3D0900D16AED /* Build configuration list for PBXNativeTarget "UTMBeGoneHelper" */;
 			buildPhases = (
-				31A42F432779031E00A0B82D /* Sources */,
-				31A42F442779031E00A0B82D /* Frameworks */,
-				31A42F452779031E00A0B82D /* Resources */,
+				314FD7D0277A3D0800D16AED /* Sources */,
+				314FD7D1277A3D0800D16AED /* Frameworks */,
+				314FD7D2277A3D0800D16AED /* Resources */,
 			);
 			buildRules = (
 			);
@@ -257,7 +257,7 @@
 			);
 			name = UTMBeGoneHelper;
 			productName = UTMBeGoneHelper;
-			productReference = 31A42F472779031E00A0B82D /* UTMBeGoneHelper.app */;
+			productReference = 314FD7D4277A3D0800D16AED /* UTMBeGoneHelper.app */;
 			productType = "com.apple.product-type.application";
 		};
 		31A6634424FDAB4400CDD04A /* UTMBeGone */ = {
@@ -306,7 +306,7 @@
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Fernando Bunn";
 				TargetAttributes = {
-					31A42F462779031E00A0B82D = {
+					314FD7D3277A3D0800D16AED = {
 						CreatedOnToolsVersion = 13.2;
 					};
 					31A6634424FDAB4400CDD04A = {
@@ -334,17 +334,18 @@
 			targets = (
 				31A6634424FDAB4400CDD04A /* UTMBeGone */,
 				31A6635424FDAB4500CDD04A /* UTMBeGoneTests */,
-				31A42F462779031E00A0B82D /* UTMBeGoneHelper */,
+				314FD7D3277A3D0800D16AED /* UTMBeGoneHelper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		31A42F452779031E00A0B82D /* Resources */ = {
+		314FD7D2277A3D0800D16AED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31A42F4E2779031E00A0B82D /* Assets.xcassets in Resources */,
+				314FD7DB277A3D0900D16AED /* Assets.xcassets in Resources */,
+				314FD7DE277A3D0900D16AED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,13 +369,12 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		31A42F432779031E00A0B82D /* Sources */ = {
+		314FD7D0277A3D0800D16AED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3192B4F0277919E400EFC6FB /* SharedConsts.swift in Sources */,
-				3192B4F427791EED00EFC6FB /* Bundle+MainApp.swift in Sources */,
-				31A42F4A2779031E00A0B82D /* AppDelegate.swift in Sources */,
+				314FD7E4277A3D3B00D16AED /* Bundle+MainApp.swift in Sources */,
+				314FD7D7277A3D0900D16AED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +415,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		314FD7DC277A3D0900D16AED /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				314FD7DD277A3D0900D16AED /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		31A6634C24FDAB4400CDD04A /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -426,7 +434,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		31A42F532779031E00A0B82D /* Debug */ = {
+		314FD7E1277A3D0900D16AED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -435,27 +443,31 @@
 				CODE_SIGN_ENTITLEMENTS = UTMBeGoneHelper/UTMBeGoneHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTMBeGoneHelper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fernando Bunn. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = bunn.dev.UTMBeGoneHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		31A42F542779031E00A0B82D /* Release */ = {
+		314FD7E2277A3D0900D16AED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -464,21 +476,25 @@
 				CODE_SIGN_ENTITLEMENTS = UTMBeGoneHelper/UTMBeGoneHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UTMBeGoneHelper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Fernando Bunn. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = bunn.dev.UTMBeGoneHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -535,7 +551,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -590,7 +606,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -697,11 +713,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		31A42F552779031E00A0B82D /* Build configuration list for PBXNativeTarget "UTMBeGoneHelper" */ = {
+		314FD7E0277A3D0900D16AED /* Build configuration list for PBXNativeTarget "UTMBeGoneHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				31A42F532779031E00A0B82D /* Debug */,
-				31A42F542779031E00A0B82D /* Release */,
+				314FD7E1277A3D0900D16AED /* Debug */,
+				314FD7E2277A3D0900D16AED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
