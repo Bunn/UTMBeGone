@@ -130,7 +130,7 @@ extension MenuManager {
     }
     
     @objc private func openProjectWebsite() {
-        NSWorkspace.shared.open(URL(string: "https://github.com/Bunn/UTMBeGone")!)
+        OpenWebsiteHelper.openWebsite()
     }
     
     @objc private func quit() {

@@ -17,7 +17,7 @@ class PreferencesViewController: NSViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        title = "Query Items"
+        title = "UTMBeGone Preferences"
     }
     
     @objc private func textDidChange(_ sender: NSTextField) {
@@ -42,6 +42,10 @@ class PreferencesViewController: NSViewController {
         let item = itemsManager.item(for: selectedRow)
         itemsManager.delete(item)
         tableView.reloadData()
+    }
+    
+    @IBAction func projectWebsiteButtonClicked(_ sender: NSButton) {
+        OpenWebsiteHelper.openWebsite()
     }
 }
 

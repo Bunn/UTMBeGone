@@ -15,6 +15,7 @@
 		31629499250D180C0015E908 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31629498250D180C0015E908 /* NotificationNames.swift */; };
 		3192B4EF277919E400EFC6FB /* SharedConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192B4EE277919E400EFC6FB /* SharedConsts.swift */; };
 		3192B4F227791B7400EFC6FB /* LaunchAtLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3192B4F127791B7400EFC6FB /* LaunchAtLoginHelper.swift */; };
+		31A1E5F4277E1BFA006079AE /* OpenWebsiteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1E5F3277E1BFA006079AE /* OpenWebsiteHelper.swift */; };
 		31A6634924FDAB4400CDD04A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6634824FDAB4400CDD04A /* AppDelegate.swift */; };
 		31A6634B24FDAB4400CDD04A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A6634A24FDAB4400CDD04A /* Assets.xcassets */; };
 		31A6634E24FDAB4400CDD04A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A6634C24FDAB4400CDD04A /* MainMenu.xib */; };
@@ -63,6 +64,7 @@
 		31629498250D180C0015E908 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		3192B4EE277919E400EFC6FB /* SharedConsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConsts.swift; sourceTree = "<group>"; };
 		3192B4F127791B7400EFC6FB /* LaunchAtLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginHelper.swift; sourceTree = "<group>"; };
+		31A1E5F3277E1BFA006079AE /* OpenWebsiteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWebsiteHelper.swift; sourceTree = "<group>"; };
 		31A42F5A2779037200A0B82D /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		31A6634524FDAB4400CDD04A /* UTMBeGone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTMBeGone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A6634824FDAB4400CDD04A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				31D9568D2506818900DCD1D1 /* UTMBeGone-Bridging-Header.h */,
 				31629498250D180C0015E908 /* NotificationNames.swift */,
 				3192B4F127791B7400EFC6FB /* LaunchAtLoginHelper.swift */,
+				31A1E5F3277E1BFA006079AE /* OpenWebsiteHelper.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				31A6636B24FDAB9C00CDD04A /* MenuManager.swift in Sources */,
 				31A6636524FDAB5900CDD04A /* URLGarbageRemover.swift in Sources */,
 				31A6634924FDAB4400CDD04A /* AppDelegate.swift in Sources */,
+				31A1E5F4277E1BFA006079AE /* OpenWebsiteHelper.swift in Sources */,
 				31A6636924FDAB5E00CDD04A /* PasteboardListener.swift in Sources */,
 				31A6636824FDAB5E00CDD04A /* PasteboardHandler.swift in Sources */,
 				3192B4F227791B7400EFC6FB /* LaunchAtLoginHelper.swift in Sources */,
