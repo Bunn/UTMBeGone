@@ -17,6 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApplication.shared.setActivationPolicy(.accessory)
         pasteboardHandler.startListening()
         menu.setupMenu()
+  
+        LaunchAtLoginHelper().killHelperIfNecessary()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
