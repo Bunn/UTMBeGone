@@ -17,7 +17,7 @@ class PreferencesViewController: NSViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        title = "Query Items"
+        title = "UTMBeGone Preferences"
     }
     
     @objc private func textDidChange(_ sender: NSTextField) {
