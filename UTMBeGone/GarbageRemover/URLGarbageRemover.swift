@@ -10,9 +10,11 @@ import Foundation
 
 struct URLGarbageRemover {
     static func removeGarbage(_ value: String, itemsToRemove: [String]) -> String {
-
+        
         let sanitizedString = value.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard var componenets = URLComponents(string: sanitizedString),
+        
+        guard let url = URL(string: sanitizedString),
+            var componenets = URLComponents(url: url, resolvingAgainstBaseURL: true),
               componenets.scheme != nil else {
             return value
         }
