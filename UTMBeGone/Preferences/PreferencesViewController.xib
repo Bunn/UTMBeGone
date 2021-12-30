@@ -100,6 +100,16 @@
                         <action selector="removeItemButtonClicked:" target="-2" id="gsE-Mo-z4H"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="05Y-JM-prJ">
+                    <rect key="frame" x="202" y="13" width="164" height="32"/>
+                    <buttonCell key="cell" type="push" title="UTMBeGone Website" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qvt-Xl-dQH">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="projectWebsiteButtonClicked:" target="-2" id="TLo-Fj-MGN"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="iX9-A1-bZk" firstAttribute="top" secondItem="rU0-9h-Xuw" secondAttribute="bottom" constant="4" id="2Pi-dn-DSc"/>
@@ -110,7 +120,9 @@
                 <constraint firstItem="3C9-oi-H3Q" firstAttribute="leading" secondItem="iX9-A1-bZk" secondAttribute="trailing" constant="10" id="Ggh-fI-EIT"/>
                 <constraint firstItem="3C9-oi-H3Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="H7T-5M-D2O"/>
                 <constraint firstItem="rU0-9h-Xuw" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="Jq4-CK-K1F"/>
+                <constraint firstItem="05Y-JM-prJ" firstAttribute="centerY" secondItem="3C9-oi-H3Q" secondAttribute="centerY" id="Kcb-z1-G25"/>
                 <constraint firstAttribute="bottom" secondItem="iX9-A1-bZk" secondAttribute="bottom" constant="20" symbolic="YES" id="TB5-FT-ywe"/>
+                <constraint firstItem="05Y-JM-prJ" firstAttribute="trailing" secondItem="InZ-Hh-aSl" secondAttribute="trailing" id="eV6-zY-NiJ"/>
                 <constraint firstItem="3C9-oi-H3Q" firstAttribute="width" secondItem="iX9-A1-bZk" secondAttribute="width" multiplier="0.945946" id="gxK-5l-nrv"/>
             </constraints>
             <point key="canvasLocation" x="89" y="176.5"/>

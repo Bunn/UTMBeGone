@@ -43,6 +43,10 @@ class PreferencesViewController: NSViewController {
         itemsManager.delete(item)
         tableView.reloadData()
     }
+    
+    @IBAction func projectWebsiteButtonClicked(_ sender: NSButton) {
+        OpenWebsiteHelper.openWebsite()
+    }
 }
 
 extension PreferencesViewController: NSTableViewDelegate {
