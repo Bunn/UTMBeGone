@@ -15,7 +15,8 @@ struct URLGarbageRemover {
         
         guard let url = URL(string: sanitizedString),
             var componenets = URLComponents(url: url, resolvingAgainstBaseURL: true),
-              componenets.scheme != nil else {
+              let scheme = componenets.scheme,
+              scheme == "http" || scheme == "https" else {
             return value
         }
 
