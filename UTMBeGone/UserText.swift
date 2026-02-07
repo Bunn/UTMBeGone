@@ -30,6 +30,11 @@ enum UserText {
     // Settings
     static let queryParametersHeader = "Query parameters to remove:"
     static let parameterPlaceholder = "Parameter"
+    // Statistics
+    static let statisticsHeader = "Statistics"
     static let enableStats = "Enable Statistics"
-    static let resetStats = "Reset Statistics"
+    static let resetStats = "Reset"
+    static let statsPrivacyInfo = "Statistics are stored locally on your Mac. Only counts are tracked, no URLs or parameter values are ever stored. Your data never leaves your computer."
+    static let statsSourceCode = "View Source Code"
+    static let statsSourceCodeURL = "https://github.com/Bunn/UTMBeGone"
 }

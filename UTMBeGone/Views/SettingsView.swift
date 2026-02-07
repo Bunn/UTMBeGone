@@ -11,67 +11,79 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(AppState.self) private var appState
     @State private var selection = Set<QueryItem.ID>()
+    @State private var showingStatsInfo = false
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text(UserText.queryParametersHeader)
-                .font(.headline)
-                .padding([.top, .horizontal])
-
-            List(selection: $selection) {
-                ForEach(appState.queryItemsManager.queryList) { item in
-                    TextField(UserText.parameterPlaceholder, text: Binding(
-                        get: { item.value },
-                        set: { appState.queryItemsManager.updateValue(for: item.id, newValue: $0) }
-                    ))
+        Form {
+            Section(UserText.queryParametersHeader) {
+                List(selection: $selection) {
+                    ForEach(appState.queryItemsManager.queryList) { item in
+                        TextField(UserText.parameterPlaceholder, text: Binding(
+                            get: { item.value },
+                            set: { appState.queryItemsManager.updateValue(for: item.id, newValue: $0) }
+                        ))
+                    }
+                    .onDelete { offsets in
+                        appState.queryItemsManager.delete(at: offsets)
+                    }
                 }
-                .onDelete { offsets in
-                    appState.queryItemsManager.delete(at: offsets)
+
+                HStack(spacing: 4) {
+                    Button(action: { appState.queryItemsManager.createNewItem() }) {
+                        Image(systemName: "plus")
+                            .frame(width: 16, height: 16)
+                    }
+
+                    Button(action: { deleteSelected() }) {
+                        Image(systemName: "minus")
+                            .frame(width: 16, height: 16)
+                    }
+                    .disabled(selection.isEmpty)
                 }
             }
 
-            HStack {
-                Button(action: { appState.queryItemsManager.createNewItem() }) {
-                    Image(systemName: "plus")
-                        .frame(width: 16, height: 16)
-                }
+            Section {
+                HStack {
+                    Toggle(UserText.enableStats, isOn: Binding(
+                        get: { appState.cleaningStats.isEnabled },
+                        set: { appState.cleaningStats.isEnabled = $0 }
+                    ))
 
-                Button(action: { deleteSelected() }) {
-                    Image(systemName: "minus")
-                        .frame(width: 16, height: 16)
-                }
-                .disabled(selection.isEmpty)
+                    Button(action: { showingStatsInfo.toggle() }) {
+                        Image(systemName: "questionmark.circle")
+                    }
+                    .buttonStyle(.plain)
+                    .foregroundStyle(.secondary)
+                    .popover(isPresented: $showingStatsInfo, arrowEdge: .trailing) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(UserText.statsPrivacyInfo)
+                                .fixedSize(horizontal: false, vertical: true)
 
+                            Link(UserText.statsSourceCode, destination: URL(string: UserText.statsSourceCodeURL)!)
+                        }
+                        .padding()
+                        .frame(width: 260)
+                    }
+
+                    Spacer()
+
+                    Button(UserText.resetStats) {
+                        appState.cleaningStats.reset()
+                    }
+                }
+            } header: {
+                Text(UserText.statisticsHeader)
+            }
+
+            Section {
                 Button(action: { appState.openProjectWebsite() }) {
                     Text(UserText.projectWebsite)
                 }
                 .buttonStyle(.link)
-                .padding(.leading, 8)
-
-                Spacer()
             }
-            .padding(.horizontal)
-            .padding(.top)
-
-            Divider()
-                .padding(.vertical, 8)
-
-            HStack {
-                Toggle(UserText.enableStats, isOn: Binding(
-                    get: { appState.cleaningStats.isEnabled },
-                    set: { appState.cleaningStats.isEnabled = $0 }
-                ))
-
-                Spacer()
-
-                Button(UserText.resetStats) {
-                    appState.cleaningStats.reset()
-                }
-            }
-            .padding(.horizontal)
-            .padding(.bottom)
         }
-        .frame(width: 350, height: 400)
+        .formStyle(.grouped)
+        .frame(width: 400, height: 450)
     }
 
     private func deleteSelected() {
