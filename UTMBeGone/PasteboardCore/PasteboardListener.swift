@@ -6,24 +6,33 @@
 //  Copyright © 2020 Fernando Bunn. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
-class PasteboardListener: NSObject {
-    var changeCount: Int = 0
-    var timer: Timer!
-    
-    func startListening() {
-        let pasteboard: NSPasteboard = .general
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
-            if self.changeCount != pasteboard.changeCount {
-                self.changeCount = pasteboard.changeCount
-                NotificationCenter.default.post(name: .PasteboardDidChange, object: pasteboard)
+final class PasteboardListener: Sendable {
+    private let interval: TimeInterval
+
+    init(interval: TimeInterval = 0.3) {
+        self.interval = interval
+    }
+
+    func changes() -> AsyncStream<NSPasteboard> {
+        let interval = self.interval
+        return AsyncStream { continuation in
+            let task = Task { @MainActor in
+                var lastChangeCount = NSPasteboard.general.changeCount
+                while !Task.isCancelled {
+                    try? await Task.sleep(for: .seconds(interval))
+                    let pasteboard = NSPasteboard.general
+                    if pasteboard.changeCount != lastChangeCount {
+                        lastChangeCount = pasteboard.changeCount
+                        continuation.yield(pasteboard)
+                    }
+                }
+                continuation.finish()
+            }
+            continuation.onTermination = { _ in
+                task.cancel()
             }
         }
-    }
-    
-    func stopListening() {
-        timer.invalidate()
     }
 }

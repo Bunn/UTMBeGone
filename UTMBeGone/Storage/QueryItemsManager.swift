@@ -8,29 +8,49 @@
 
 import Foundation
 
-
-class QueryItemsManager {
+@Observable
+final class QueryItemsManager {
     private static let listKey = "QueryItemListKey"
-    private(set) var queryList = [QueryItem]()
-    
+    var queryList = [QueryItem]()
+
+    var queryValues: [String] {
+        queryList.map(\.value)
+    }
+
     init() {
         restoreAll()
     }
-    
-    var numberOfItems: Int {
-        queryList.count
-    }
-    
-    func item(for index: Int) -> QueryItem {
-        queryList[index]
-    }
-    
-    func delete(_ item: QueryItem) {
-        guard let itemIndex = queryList.firstIndex(of: item) else { return }
-        queryList.remove(at: itemIndex)
+
+    func createNewItem() {
+        queryList.append(QueryItem())
         save()
     }
- 
+
+    func delete(at offsets: IndexSet) {
+        queryList.remove(atOffsets: offsets)
+        save()
+    }
+
+    func delete(ids: Set<QueryItem.ID>) {
+        queryList.removeAll { ids.contains($0.id) }
+        save()
+    }
+
+    func updateValue(for id: QueryItem.ID, newValue: String) {
+        guard let index = queryList.firstIndex(where: { $0.id == id }) else { return }
+        queryList[index].value = newValue
+        save()
+    }
+
+    func save() {
+        do {
+            let encoded = try JSONEncoder().encode(queryList)
+            UserDefaults.standard.set(encoded, forKey: QueryItemsManager.listKey)
+        } catch {
+            print("Error encoding \(error)")
+        }
+    }
+
     private func restoreAll() {
         queryList.removeAll()
         if let itemsData = UserDefaults.standard.data(forKey: QueryItemsManager.listKey) {
@@ -41,36 +61,17 @@ class QueryItemsManager {
                 print("Decoding error \(error)")
             }
         }
-        
-        if queryList.count == 0 {
+
+        if queryList.isEmpty {
             setupDefaultList()
-            save()
         }
     }
-    
-    func createNewItem() -> QueryItem {
-        let item =  QueryItem()
-        queryList.append(item)
-        return item
-    }
-    
-    func save() {
-        let jsonEncoder = JSONEncoder()
-        do {
-        let encoded = try jsonEncoder.encode(queryList)
-        UserDefaults.standard.set(encoded, forKey: QueryItemsManager.listKey)
-        } catch {
-            print("Error encoding \(error)")
-        }
-    }
-    
+
     private func setupDefaultList() {
-        _ = createNewItem().value = "utm"
-        _ = createNewItem().value = "utm_source"
-        _ = createNewItem().value = "utm_media"
-        _ = createNewItem().value = "utm_campaign"
-        _ = createNewItem().value = "utm_medium"
-        _ = createNewItem().value = "utm_term"
-        _ = createNewItem().value = "utm_content"
+        let defaults = ["utm", "utm_source", "utm_media", "utm_campaign", "utm_medium", "utm_term", "utm_content"]
+        for value in defaults {
+            queryList.append(QueryItem(value: value))
+        }
+        save()
     }
 }

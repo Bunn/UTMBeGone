@@ -8,29 +8,38 @@
 
 import Foundation
 
+struct CleaningResult: Equatable {
+    let cleanedString: String
+    let parametersRemoved: Int
+}
+
 struct URLGarbageRemover {
-    static func removeGarbage(_ value: String, itemsToRemove: [String]) -> String {
-        
+    static func removeGarbage(_ value: String, itemsToRemove: [String]) -> CleaningResult {
+
         let sanitizedString = value.trimmingCharacters(in: .whitespacesAndNewlines)
-        
+
         guard let url = URL(string: sanitizedString),
-            var componenets = URLComponents(url: url, resolvingAgainstBaseURL: true),
-              let scheme = componenets.scheme,
+              var components = URLComponents(url: url, resolvingAgainstBaseURL: true),
+              let scheme = components.scheme,
               scheme == "http" || scheme == "https" else {
-            return value
+            return CleaningResult(cleanedString: value, parametersRemoved: 0)
         }
 
-        componenets.queryItems = componenets.queryItems?.filter { queryItem in
-            itemsToRemove.map { queryItem.name == $0 }.allSatisfy { $0 == false }
+        let originalCount = components.queryItems?.count ?? 0
+
+        components.queryItems = components.queryItems?.filter { queryItem in
+            !itemsToRemove.contains(queryItem.name)
         }
-        
-        if var newURL = componenets.string {
+
+        let newCount = components.queryItems?.count ?? 0
+        let removed = originalCount - newCount
+
+        if var newURL = components.string {
             if newURL.last == "?" {
                 newURL.removeLast()
             }
-            return newURL
+            return CleaningResult(cleanedString: newURL, parametersRemoved: removed)
         }
-        return value
+        return CleaningResult(cleanedString: value, parametersRemoved: 0)
     }
 }
-
