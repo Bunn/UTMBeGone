@@ -6,54 +6,51 @@
 //  Copyright © 2020 Fernando Bunn. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
-class PasteboardHandler: NSObject {
-    let listerner = PasteboardListener()
-    
-    override init() {
-        super.init()
-        setupListeners()
+@MainActor
+final class PasteboardHandler {
+    private let listener = PasteboardListener()
+    private let queryValuesProvider: @MainActor () -> [String]
+    private let stats: CleaningStats
+    private var task: Task<Void, Never>?
+    private var skipNextChange = false
+
+    init(queryValuesProvider: @escaping @MainActor () -> [String], stats: CleaningStats) {
+        self.queryValuesProvider = queryValuesProvider
+        self.stats = stats
     }
-    
-    private func setupListeners() {
-        NotificationCenter.default.addObserver(self, selector: #selector(pasteboardShouldStopListening), name: .PasteboardShouldStopListening, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(pasteboardShouldStartListening), name: .PasteboardShouldStartListening, object: nil)
+
+    func start() {
+        task = Task {
+            for await pasteboard in listener.changes() {
+                handleChange(pasteboard)
+            }
+        }
     }
-    
-    func startListening() {
-        NotificationCenter.default.addObserver(self, selector: #selector(onPasteboardChanged), name: .PasteboardDidChange, object: nil)
-        listerner.startListening()
+
+    func stop() {
+        task?.cancel()
+        task = nil
     }
-    
-    func stopListening() {
-        NotificationCenter.default.removeObserver(self, name: .PasteboardDidChange, object: nil)
-        listerner.stopListening()
-    }
-    
-    @objc func pasteboardShouldStopListening(_ notification: Notification) {
-        stopListening()
-    }
-    
-    @objc func pasteboardShouldStartListening(_ notification: Notification) {
-        startListening()
-    }
-    
-    @objc func onPasteboardChanged(_ notification: Notification) {
-        guard let pasteboard = notification.object as? NSPasteboard,
-            let items = pasteboard.pasteboardItems,
-            let item = items.first?.string(forType: .string) else { return }
-        
-        let itemsToRemove = QueryItemsManager().queryList.map { $0.value }
-        let newItem = URLGarbageRemover.removeGarbage(item, itemsToRemove: itemsToRemove)
-        
-        if newItem != item {
-            listerner.stopListening()
-            let pasteboard = NSPasteboard.general
+
+    private func handleChange(_ pasteboard: NSPasteboard) {
+        if skipNextChange {
+            skipNextChange = false
+            return
+        }
+
+        guard let items = pasteboard.pasteboardItems,
+              let item = items.first?.string(forType: .string) else { return }
+
+        let itemsToRemove = queryValuesProvider()
+        let result = URLGarbageRemover.removeGarbage(item, itemsToRemove: itemsToRemove)
+
+        if result.cleanedString != item {
+            stats.recordCleaning(parametersRemoved: result.parametersRemoved)
+            skipNextChange = true
             pasteboard.clearContents()
-            pasteboard.setString(newItem, forType: .string)
-            listerner.startListening()
+            pasteboard.setString(result.cleanedString, forType: .string)
         }
     }
 }
-

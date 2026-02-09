@@ -20,7 +20,9 @@ class UTMBeGoneTests: XCTestCase {
 
     func testQueryWithoutScheme() {
         let value = "&nbsp;"
-        XCTAssertEqual(URLGarbageRemover.removeGarbage(value, itemsToRemove: defaultItemsToRemove), value)
+        let result = URLGarbageRemover.removeGarbage(value, itemsToRemove: defaultItemsToRemove)
+        XCTAssertEqual(result.cleanedString, value)
+        XCTAssertEqual(result.parametersRemoved, 0)
     }
 
     func testURLsWithScheme() throws {
@@ -32,7 +34,9 @@ class UTMBeGoneTests: XCTestCase {
         ]
 
         for (badData, goodData) in values {
-            XCTAssertEqual(URLGarbageRemover.removeGarbage(badData, itemsToRemove: defaultItemsToRemove), goodData)
+            let result = URLGarbageRemover.removeGarbage(badData, itemsToRemove: defaultItemsToRemove)
+            XCTAssertEqual(result.cleanedString, goodData)
+            XCTAssertGreaterThan(result.parametersRemoved, 0)
         }
     }
 
@@ -46,7 +50,8 @@ class UTMBeGoneTests: XCTestCase {
         ]
 
         for (badData, goodData) in values {
-            XCTAssertEqual(URLGarbageRemover.removeGarbage(badData, itemsToRemove: defaultItemsToRemove), goodData)
+            let result = URLGarbageRemover.removeGarbage(badData, itemsToRemove: defaultItemsToRemove)
+            XCTAssertEqual(result.cleanedString, goodData)
         }
     }
 
@@ -73,7 +78,8 @@ class UTMBeGoneTests: XCTestCase {
         ]
 
         for (input, expected) in values {
-            XCTAssertEqual(URLGarbageRemover.removeGarbage(input, itemsToRemove: defaultItemsToRemove), expected, "Failed for input: \(input)")
+            let result = URLGarbageRemover.removeGarbage(input, itemsToRemove: defaultItemsToRemove)
+            XCTAssertEqual(result.cleanedString, expected, "Failed for input: \(input)")
         }
     }
 
@@ -89,7 +95,8 @@ class UTMBeGoneTests: XCTestCase {
         ]
 
         for (input, expected) in values {
-            XCTAssertEqual(URLGarbageRemover.removeGarbage(input, itemsToRemove: defaultItemsToRemove), expected, "Failed for input: \(input)")
+            let result = URLGarbageRemover.removeGarbage(input, itemsToRemove: defaultItemsToRemove)
+            XCTAssertEqual(result.cleanedString, expected, "Failed for input: \(input)")
         }
     }
 
