@@ -9,6 +9,76 @@
 import XCTest
 @testable import UTMBeGone
 
+class QueryItemsManagerTests: XCTestCase {
+    private var suiteName: String!
+    private var testDefaults: UserDefaults!
+    private var manager: QueryItemsManager!
+
+    override func setUp() {
+        super.setUp()
+        suiteName = "QueryItemsManagerTests-\(UUID().uuidString)"
+        testDefaults = UserDefaults(suiteName: suiteName)!
+        manager = QueryItemsManager(userDefaults: testDefaults)
+        // Clear defaults loaded by the manager so tests start empty
+        manager.queryList.removeAll()
+    }
+
+    override func tearDown() {
+        testDefaults.removePersistentDomain(forName: suiteName)
+        super.tearDown()
+    }
+
+    func testCreateNewItem() {
+        manager.createNewItem()
+        XCTAssertEqual(manager.queryList.count, 1)
+    }
+
+    func testDeleteAtOffsets() {
+        manager.queryList = [QueryItem(value: "a"), QueryItem(value: "b"), QueryItem(value: "c")]
+        manager.delete(at: IndexSet([1]))
+        XCTAssertEqual(manager.queryList.map(\.value), ["a", "c"])
+    }
+
+    func testDeleteByIds() {
+        let items = [QueryItem(value: "a"), QueryItem(value: "b"), QueryItem(value: "c")]
+        manager.queryList = items
+        manager.delete(ids: [items[0].id, items[2].id])
+        XCTAssertEqual(manager.queryList.map(\.value), ["b"])
+    }
+
+    func testUpdateValue() {
+        manager.queryList = [QueryItem(value: "original")]
+        let id = manager.queryList[0].id
+        manager.updateValue(for: id, newValue: "updated")
+        XCTAssertEqual(manager.queryList[0].value, "updated")
+    }
+
+    func testUpdateValueUnknownIdDoesNothing() {
+        manager.queryList = [QueryItem(value: "original")]
+        manager.updateValue(for: UUID(), newValue: "changed")
+        XCTAssertEqual(manager.queryList[0].value, "original")
+    }
+
+    func testQueryValues() {
+        manager.queryList = [QueryItem(value: "utm"), QueryItem(value: "utm_source")]
+        XCTAssertEqual(manager.queryValues, ["utm", "utm_source"])
+    }
+
+    func testSavePersistsAndRestores() {
+        manager.queryList = [QueryItem(value: "persisted")]
+        manager.save()
+
+        let restoredManager = QueryItemsManager(userDefaults: testDefaults)
+        XCTAssertEqual(restoredManager.queryList.map(\.value), ["persisted"])
+    }
+
+    func testEmptyListLoadsDefaults() {
+        let freshManager = QueryItemsManager(userDefaults: testDefaults)
+        XCTAssertFalse(freshManager.queryList.isEmpty)
+        XCTAssertTrue(freshManager.queryList.contains(where: { $0.value == "utm" }))
+    }
+}
+
 class UTMBeGoneTests: XCTestCase {
     let defaultItemsToRemove = ["utm", "utm_source", "utm_media", "utm_campaign", "utm_medium", "utm_term"]
 

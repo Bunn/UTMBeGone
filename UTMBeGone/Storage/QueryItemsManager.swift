@@ -11,13 +11,15 @@ import Foundation
 @Observable
 final class QueryItemsManager {
     private static let listKey = "QueryItemListKey"
+    private let userDefaults: UserDefaults
     var queryList = [QueryItem]()
 
     var queryValues: [String] {
         queryList.map(\.value)
     }
 
-    init() {
+    init(userDefaults: UserDefaults = .standard) {
+        self.userDefaults = userDefaults
         restoreAll()
     }
 
@@ -45,7 +47,7 @@ final class QueryItemsManager {
     func save() {
         do {
             let encoded = try JSONEncoder().encode(queryList)
-            UserDefaults.standard.set(encoded, forKey: QueryItemsManager.listKey)
+            userDefaults.set(encoded, forKey: QueryItemsManager.listKey)
         } catch {
             print("Error encoding \(error)")
         }
@@ -53,7 +55,7 @@ final class QueryItemsManager {
 
     private func restoreAll() {
         queryList.removeAll()
-        if let itemsData = UserDefaults.standard.data(forKey: QueryItemsManager.listKey) {
+        if let itemsData = userDefaults.data(forKey: QueryItemsManager.listKey) {
             do {
                 let items = try JSONDecoder().decode([QueryItem].self, from: itemsData)
                 queryList.append(contentsOf: items)

@@ -14,22 +14,20 @@ struct SettingsView: View {
     @State private var showingStatsInfo = false
 
     var body: some View {
+        @Bindable var manager = appState.queryItemsManager
         Form {
             Section(UserText.queryParametersHeader) {
                 List(selection: $selection) {
-                    ForEach(appState.queryItemsManager.queryList) { item in
-                        TextField(UserText.parameterPlaceholder, text: Binding(
-                            get: { item.value },
-                            set: { appState.queryItemsManager.updateValue(for: item.id, newValue: $0) }
-                        ))
+                    ForEach($manager.queryList) { $item in
+                        QueryItemRow(item: $item, onSave: manager.save)
                     }
                     .onDelete { offsets in
-                        appState.queryItemsManager.delete(at: offsets)
+                        manager.delete(at: offsets)
                     }
                 }
 
                 HStack(spacing: 4) {
-                    Button(action: { appState.queryItemsManager.createNewItem() }) {
+                    Button(action: { manager.createNewItem() }) {
                         Image(systemName: "plus")
                             .frame(width: 16, height: 16)
                     }
@@ -89,5 +87,32 @@ struct SettingsView: View {
     private func deleteSelected() {
         appState.queryItemsManager.delete(ids: selection)
         selection.removeAll()
+    }
+}
+
+private struct QueryItemRow: View {
+    @Binding var item: QueryItem
+    let onSave: () -> Void
+    @State private var text: String
+    @FocusState private var isFocused: Bool
+
+    init(item: Binding<QueryItem>, onSave: @escaping () -> Void) {
+        self._item = item
+        self.onSave = onSave
+        self._text = State(initialValue: item.wrappedValue.value)
+    }
+
+    var body: some View {
+        TextField(UserText.parameterPlaceholder, text: $text)
+            .focused($isFocused)
+            .onSubmit(commit)
+            .onChange(of: isFocused) { _, focused in
+                if !focused { commit() }
+            }
+    }
+
+    private func commit() {
+        item.value = text
+        onSave()
     }
 }
